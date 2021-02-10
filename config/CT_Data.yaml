@@ -35,7 +35,7 @@ model_params:
      max_features: 1024
      # Number of block in Unet. Can be increased or decreased depending or resolution.
      num_blocks: 5
-     scale_factor: [6,10]
+     scale_factor: [7,10]
   generator_params:
     # Number of features mutliplier
     block_expansion: 32
