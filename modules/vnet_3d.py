@@ -21,20 +21,20 @@ class NetConvBlock(nn.Module):
         self.convs.append(nn.Conv3d( \
                 in_channels, out_channels, kernel_size=kernel_sz, padding=pad))
         self.bns.append(nn.BatchNorm3d(out_channels))
-        #self.afs.append(nn.PReLU(out_channels))
+        self.afs.append(nn.PReLU(out_channels))
         #self.afs.append(nn.ELU())
         for i in range(self.layers-1):
             self.convs.append(nn.Conv3d( \
                     out_channels, out_channels, kernel_size=kernel_sz, padding=pad))
             self.bns.append(nn.BatchNorm3d(out_channels))
-            #self.afs.append(nn.PReLU(out_channels))
+            self.afs.append(nn.PReLU(out_channels))
 
     def forward(self, x):
         out = x
         for i in range(self.layers):
             out = self.convs[i](out)
             out = self.bns[i](out)
-            #out = self.afs[i](out)
+            out = self.afs[i](out)
         return out
 
 class NetInBlock(nn.Module):
@@ -54,14 +54,14 @@ class NetDownBlock(nn.Module):
         super(NetDownBlock, self).__init__()
         self.down = nn.Conv3d( \
                 in_channels, out_channels, kernel_size=2, stride=2)
-        #self.af= nn.PReLU(out_channels)
+        self.af= nn.PReLU(out_channels)
         self.bn = nn.BatchNorm3d(out_channels)
         self.convb = NetConvBlock(out_channels, out_channels, layers=layers)
 
     def forward(self, x):
         down = self.down(x)
         down = self.bn(down)
-        #down = self.af(down)
+        down = self.af(down)
         out = self.convb(down)
         out = torch.add(out, down)
         return out
@@ -72,14 +72,14 @@ class NetUpBlock(nn.Module):
         self.up = nn.ConvTranspose3d(\
                 in_channels, out_channels, kernel_size=2, stride=2)
         self.bn = nn.BatchNorm3d(out_channels)
-        #self.af= nn.PReLU(out_channels)
+        self.af= nn.PReLU(out_channels)
         self.convb = NetConvBlock( \
                 out_channels+br_channels, out_channels, layers=layers)
 
     def forward(self, x, bridge):
         up = self.up(x)
         up = self.bn(up)
-        #up = self.af(up)
+        up = self.af(up)
         out = torch.cat([up, bridge], 1)
         out = self.convb(out)
         out = torch.add(out, up)
@@ -91,14 +91,14 @@ class NetJustUpBlock(nn.Module):
         self.up = nn.ConvTranspose3d(\
                 in_channels, out_channels, kernel_size=2, stride=2)
         self.bn = nn.BatchNorm3d(out_channels)
-        #self.af= nn.PReLU(out_channels)
+        self.af= nn.PReLU(out_channels)
         self.convb = NetConvBlock( \
                 out_channels, out_channels, layers=layers)
 
     def forward(self, x):
         up = self.up(x)
         up = self.bn(up)
-        #up = self.af(up)
+        up = self.af(up)
         out = self.convb(up)
         #out = torch.add(out, up)
         return out
@@ -111,23 +111,23 @@ class NetOutBlock(nn.Module):
         self.up = nn.ConvTranspose2d(\
                 in_channels, out_channels, kernel_size=2, stride=2)
         self.bn_up = nn.BatchNorm2d(out_channels)
-        #self.af_up= nn.PReLU(out_channels)
+        self.af_up= nn.PReLU(out_channels)
         self.convb = NetConvBlock( \
                 out_channels+br_channels, out_channels, layers=layers)
         self.conv = nn.Conv2d(out_channels, classes, kernel_size=1)
         self.bn_out = nn.BatchNorm2d(classes)
-        #self.af_out= nn.PReLU(classes)
+        self.af_out= nn.PReLU(classes)
 
     def forward(self, x, bridge):
         up = self.up(x)
         up = self.bn_up(up)
-        #up = self.af_up(up)
+        up = self.af_up(up)
         out = torch.cat([up, bridge], 1)
         out = self.convb(out)
         out = torch.add(out, up)
         out = self.conv(out)
         out = self.bn_out(out)
-        #out = self.af_out(out)
+        out = self.af_out(out)
         return out
 
 
@@ -163,20 +163,20 @@ class down_conv(nn.Module):
         self.convs.append(nn.Conv3d( \
                 in_channels, out_channels, kernel_size=kernel_sz, stride = (1,2,2), padding=pad))
         self.bns.append(nn.BatchNorm3d(out_channels))
-        #self.afs.append(nn.PReLU(out_channels))
+        self.afs.append(nn.PReLU(out_channels))
         #self.afs.append(nn.ELU())
         for i in range(self.layers-1):
             self.convs.append(nn.Conv3d( \
                     out_channels, out_channels, kernel_size=3, padding=1))
             self.bns.append(nn.BatchNorm3d(out_channels))
-            #self.afs.append(nn.PReLU(out_channels))
+            self.afs.append(nn.PReLU(out_channels))
 
     def forward(self, x):
         out = x
         for i in range(self.layers):
             out = self.convs[i](out)
             out = self.bns[i](out)
-            #out = self.afs[i](out)
+            out = self.afs[i](out)
         return out
 
 
