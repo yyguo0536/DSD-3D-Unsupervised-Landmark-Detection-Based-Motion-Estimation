@@ -6,14 +6,14 @@ In this study, we provide a novel unsupervised topology guided motion estimation
 
 <div align=center><img width="250" height="180" src="https://github.com/guoyu-niubility/DSD-3D-Unsupervised-Landmark-Detection-Based-Motion-Estimation/blob/main/images/cardiac-1.gif"/>    <img width="250" height="180" src="https://github.com/guoyu-niubility/DSD-3D-Unsupervised-Landmark-Detection-Based-Motion-Estimation/blob/main/images/cardiac-2.gif" alt="Case-1: Cardiac motion in landmark representation"/></div>
 
-<div align=center>Two examples to show the cardiac motion in landmark representation</div>
+<div align=center>Two examples to show the cardiac motion in landmark representation - 3D</div>
 
 <div align=center><img width="250" height="180" src="https://github.com/guoyu-niubility/DSD-3D-Unsupervised-Landmark-Detection-Based-Motion-Estimation/blob/main/images/lung-1.gif" alt="Case-1: Cardiac motion in landmark representation"/>    <img width="250" height="180" src="https://github.com/guoyu-niubility/DSD-3D-Unsupervised-Landmark-Detection-Based-Motion-Estimation/blob/main/images/lung-2.gif" alt="Case-1: Cardiac motion in landmark representation"/></div>
-<div align=center>Two examples to show the lung motion in landmark representation</div>
+<div align=center>Two examples to show the lung motion in landmark representation - 3D</div>
 
 
 <div align=center><img width="250" height="180" src="https://github.com/guoyu-niubility/DSD-3D-Unsupervised-Landmark-Detection-Based-Motion-Estimation/blob/main/images/animation1.gif" alt="Case-1: acdc motion in landmark representation"/>    <img width="250" height="180" src="https://github.com/guoyu-niubility/DSD-3D-Unsupervised-Landmark-Detection-Based-Motion-Estimation/blob/main/images/animation2.gif" alt="Case-1: acdc motion in landmark representation"/></div>
-<div align=center>Two examples to show the acdc motion in landmark representation</div>
+<div align=center>Two examples to show the acdc motion in landmark representation - 2D</div>
 
 Our Dense-Sparse-Dense (DSD) Framework
 ----
