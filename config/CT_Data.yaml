@@ -72,7 +72,7 @@ model_params:
 # Parameters of training
 train_params:
   # Number of training epochs 
-  num_epochs: 200
+  num_epochs: 150
   # For better i/o performance when number of videos is small number of epochs can be multiplied by this number.
   # Thus effectivlly with num_repeats=100 each epoch is 100 times larger. 
   num_repeats: 150
