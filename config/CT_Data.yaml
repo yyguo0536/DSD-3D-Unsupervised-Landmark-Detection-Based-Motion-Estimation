@@ -77,7 +77,7 @@ train_params:
   # Thus effectivlly with num_repeats=100 each epoch is 100 times larger. 
   num_repeats: 150
   # Drop learning rate by 10 times after this epochs 
-  epoch_milestones: [100, 150]
+  epoch_milestones: [80, 120]
   # Initial learing rate for all modules
   lr_generator: 2.0e-5
   lr_discriminator: 4.0e-5
