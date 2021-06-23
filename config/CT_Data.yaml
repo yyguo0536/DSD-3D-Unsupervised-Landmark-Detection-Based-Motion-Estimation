@@ -79,9 +79,9 @@ train_params:
   # Drop learning rate by 10 times after this epochs 
   epoch_milestones: [100, 150]
   # Initial learing rate for all modules
-  lr_generator: 1.0e-4
+  lr_generator: 2.0e-5
   lr_discriminator: 4.0e-5
-  lr_kp_detector: 1.0e-4
+  lr_kp_detector: 6.0e-5
   batch_size: 1
   # Scales for perceptual pyramide loss. If scales = [1, 0.5, 0.25, 0.125] and image resolution is 256x256,
   # than the loss will be computer on resolutions 256x256, 128x128, 64x64, 32x32.
